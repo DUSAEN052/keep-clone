@@ -13,7 +13,13 @@ server.route({
   method: 'GET',
   path: '/notes',
   handler: function (request, reply) {
-    reply(Array.from(notes));
+    const notesArr = [];
+
+    for (let key of notes.keys()) {
+      notesArr.push(notes.get(key))
+    }
+
+    reply(notesArr);
   }
 });
 
